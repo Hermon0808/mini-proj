@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List with Authentication</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <!-- Authentication Forms -->
+    <div id="auth-section">
+        <div id="login-form" class="form">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="login()" >Login</button>
+            <p>Don't have an account? <a href="#" onclick="toggleForm('signup')">Sign up</a></p>
+            <p id="login-message" class="message hidden">Please enter your credentials.</p>
+        </div>
+
+        <div id="signup-form" class="form hidden">
+            <h2>Sign Up</h2>
+            <input type="email" id="signup-email" placeholder="Email" name="email">
+            <input type="password" id="signup-password" placeholder="Password" name="password">
+            <button onclick="signup()" href="signup">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="toggleForm('login')">Login</a></p>
+            <p id="signup-message" class="message hidden">Please fill out the form to create an account.</p>
+        </div>
+    </div>
+
+    <!-- To-Do List Section (appears after login) -->
+    <div id="todo-section" class="hidden">
+        <h2>Your To-Do List</h2>
+        <input type="text" id="todo-input" placeholder="Add a new task">
+        <input type="datetime-local" id="deadline" placeholder="Set Deadline">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+        <ul id="todo-list"></ul>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
